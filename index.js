@@ -16,8 +16,16 @@ fs.createReadStream("index.csv")
   })
   .on("end", () => {
     const namesArray = Object.keys(names);
+    for (let i = 0; i < namesArray.length; i++) {
+      const splitName = namesArray[i].split(", ");
+      if (splitName[1]) {
+        const transformedName = `${splitName[1]} ${splitName[0]}`;
+        namesArray[i] = transformedName;
+      }
+    }
+    const sortedNamesArray = namesArray.sort();
     const csvOutputData = [];
-    namesArray.forEach((name) => {
+    sortedNamesArray.forEach((name) => {
       csvOutputData.push({ name: name });
     });
     csvWriter.writeRecords(csvOutputData);
