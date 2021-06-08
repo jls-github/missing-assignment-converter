@@ -7,4 +7,4 @@ This application takes in a file named 'index.csv', extracts the names from the 
 - Run ```npm install```
 - Copy your csv file into the base of this directory and rename it index.csv
 - Run ```node index.js```
-- Your file will be outputted as 'out.csv'
+- Your file will be created as 'out.csv'
